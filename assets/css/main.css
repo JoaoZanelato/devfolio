@@ -1641,3 +1641,35 @@ section,
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Uma sombra leve para destacar */
 }
+
+/* --- AJUSTE DE FOTO DE PERFIL COM ZOOM E CLIPPING --- */
+.about .col-lg-5 {
+  overflow: hidden; /* Garante que o zoom não saia da borda */
+  border-radius: 15px; /* Cantos arredondados no container */
+  aspect-ratio: 1 / 1; /* Força a proporção quadrada 1:1 */
+  padding: 0; /* Remove espaçamentos extras */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.about .col-lg-5 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* Centraliza a foto conforme solicitado */
+
+  /* AJUSTE O ZOOM AQUI: 1.2 é 20% de zoom, 1.5 é 50%, etc. */
+  transform: scale(1.1);
+
+  transition: transform 0.3s ease; /* Efeito suave de carregamento */
+}
+
+/* Ajuste para telemóveis */
+@media (max-width: 991px) {
+  .about .col-lg-5 {
+    max-width: 300px;
+    margin: 0 auto 30px auto;
+  }
+}
