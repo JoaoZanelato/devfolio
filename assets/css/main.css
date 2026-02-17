@@ -911,64 +911,75 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Portfolio Section
+# Portfolio Section (CORRIGIDO)
 --------------------------------------------------------------*/
-
 .portfolio .portfolio-item {
   position: relative;
+  overflow: hidden; /* Garante que nada saia das bordas arredondadas */
+  border-radius: 12px; /* Arredondamento do Card */
 }
 
+.portfolio .portfolio-item img {
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+  height: auto;
+}
+
+/* Efeito de Zoom na imagem quando passa o mouse */
+.portfolio .portfolio-item:hover img {
+  transform: scale(1.1);
+}
+
+/* A caixa de informações (Overlay) */
 .portfolio .portfolio-item .portfolio-info {
   opacity: 0;
   position: absolute;
-  left: 30px;
-  right: 30px;
-  bottom: 0;
+  left: 0;
+  right: 0;
+  bottom: -50px; /* Começa escondido mais embaixo */
   z-index: 3;
   transition: all ease-in-out 0.3s;
-  background: color-mix(in srgb, var(--background-color), transparent 10%);
-  padding: 15px;
+
+  /* ESTILO NANO BANANA (Dark Glass) */
+  background: rgba(0, 0, 0, 0.85); /* Fundo preto semi-transparente */
+  backdrop-filter: blur(10px); /* Desfoque do fundo (Vidro) */
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .portfolio .portfolio-item .portfolio-info h4 {
   font-size: 18px;
   font-weight: 600;
-  padding-right: 50px;
+  color: #ffffff; /* Texto Branco */
+  margin-bottom: 5px;
 }
 
 .portfolio .portfolio-item .portfolio-info p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: #cccccc; /* Texto Cinza Claro */
   font-size: 14px;
   margin-bottom: 0;
-  padding-right: 50px;
 }
 
-.portfolio .portfolio-item .portfolio-info,
+/* Botão do GitHub */
 .portfolio .portfolio-item .portfolio-info .details-link {
   position: absolute;
-  right: 50px;
-  font-size: 24px;
-  top: calc(50% - 14px);
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  transition: 0.3s;
-  line-height: 0;
-}
-
-.portfolio .portfolio-item .portfolio-info .preview-link:hover,
-.portfolio .portfolio-item .portfolio-info .details-link:hover {
-  color: var(--accent-color);
-}
-
-.portfolio .portfolio-item .portfolio-info .details-link {
-  right: 14px;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%); /* Centraliza verticalmente */
   font-size: 28px;
+  color: #ffffff;
+  transition: 0.3s;
 }
+
+.portfolio .portfolio-item .portfolio-info .details-link:hover {
+  color: var(--accent-color); 
+}
+
 
 .portfolio .portfolio-item:hover .portfolio-info {
   opacity: 1;
-  bottom: 20px;
+  bottom: 0; 
 }
-
 /*--------------------------------------------------------------
 # Pricing Section
 --------------------------------------------------------------*/
