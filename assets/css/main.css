@@ -972,13 +972,12 @@ section,
 }
 
 .portfolio .portfolio-item .portfolio-info .details-link:hover {
-  color: var(--accent-color); 
+  color: var(--accent-color);
 }
-
 
 .portfolio .portfolio-item:hover .portfolio-info {
   opacity: 1;
-  bottom: 0; 
+  bottom: 0;
 }
 /*--------------------------------------------------------------
 # Pricing Section
@@ -1592,4 +1591,10 @@ section,
     max-width: 300px;
     margin: 0 auto 30px auto;
   }
+}
+
+/* Justificar texto da seção Sobre */
+.about .about-me p {
+  text-align: justify;
+  text-justify: inter-word; /* Melhora o espaçamento entre palavras */
 }
